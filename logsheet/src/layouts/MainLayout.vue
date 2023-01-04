@@ -1,275 +1,156 @@
 <template>
-  <div class="template">
-    <div class="q-pa-md" style="max-width: 400px">
-      <q-form @submit="onSubmit" @reset="onReset" class="q-pa-md form">
-        <div class="head">
-          <h6 id="headline">STERILISATION STATION LOG SHEET</h6>
-        </div>
-        <div class="date">
-          <label for="date">DATE:</label>
-          <input type="text" id="date" name="date" /><br />
-          <label for="shift">Shift:</label>
-          <input type="text" id="shift" name="shift" /><br />
-        </div>
-        <label for="batch no">BATCH NO:</label>
-        <input type="text" id="batch" name="batch" /><br />
-        <label for="batch no">STERILIZER NO:</label>
-        <input type="text" id="sterilizer" name="sterilizer" /><br />
-        <!-- 1st time peak -->
-        <label for="peak">1st Peak</label>
-        <label for="date" id="time-in">Time In</label>
-        <label for="date" id="time-out">Time Out</label>
-        <div class="q-pa-md">
-          <div class="q-gutter-sm row">
-            <q-input filled v-model="time" mask="time" :rules="['time']">
-              <template v-slot:append>
-                <q-icon name="access_time" class="cursor-pointer">
-                  <q-popup-proxy
-                    cover
-                    transition-show="scale"
-                    transition-hide="scale"
-                  >
-                    <q-time v-model="time">
-                      <div class="row items-center justify-end">
-                        <q-btn
-                          v-close-popup
-                          label="Close"
-                          color="primary"
-                          flat
-                        />
-                      </div>
-                    </q-time>
-                  </q-popup-proxy>
-                </q-icon>
-              </template>
-            </q-input>
+  <q-layout view="lHh Lpr lFf">
+    <q-header elevated>
+      <q-toolbar>
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="toggleLeftDrawer"
+        />
 
-            <q-input filled v-model="time" mask="time" :rules="['time']">
-              <template v-slot:append>
-                <q-icon name="access_time" class="cursor-pointer">
-                  <q-popup-proxy
-                    cover
-                    transition-show="scale"
-                    transition-hide="scale"
-                  >
-                    <q-time v-model="time">
-                      <div class="row items-center justify-end">
-                        <q-btn
-                          v-close-popup
-                          label="Close"
-                          color="primary"
-                          flat
-                        />
-                      </div>
-                    </q-time>
-                  </q-popup-proxy>
-                </q-icon>
-              </template>
-            </q-input>
-          </div>
-        </div>
-        <!-- <input type="text" id="peak-1" name="peak-1" /><br /> -->
-        <!-- 2nd time peak -->
-        <label for="peak">2nd Peak</label>
-        <label for="date" id="time-in">Time In</label>
-        <label for="date" id="time-out">Time Out</label>
-        <div class="q-pa-md">
-          <div class="q-gutter-sm row">
-            <q-input filled v-model="time" mask="time" :rules="['time']">
-              <template v-slot:append>
-                <q-icon name="access_time" class="cursor-pointer">
-                  <q-popup-proxy
-                    cover
-                    transition-show="scale"
-                    transition-hide="scale"
-                  >
-                    <q-time v-model="time">
-                      <div class="row items-center justify-end">
-                        <q-btn
-                          v-close-popup
-                          label="Close"
-                          color="primary"
-                          flat
-                        />
-                      </div>
-                    </q-time>
-                  </q-popup-proxy>
-                </q-icon>
-              </template>
-            </q-input>
+        <q-toolbar-title> LOG - SHEETS </q-toolbar-title>
 
-            <q-input filled v-model="time" mask="time" :rules="['time']">
-              <template v-slot:append>
-                <q-icon name="access_time" class="cursor-pointer">
-                  <q-popup-proxy
-                    cover
-                    transition-show="scale"
-                    transition-hide="scale"
-                  >
-                    <q-time v-model="time">
-                      <div class="row items-center justify-end">
-                        <q-btn
-                          v-close-popup
-                          label="Close"
-                          color="primary"
-                          flat
-                        />
-                      </div>
-                    </q-time>
-                  </q-popup-proxy>
-                </q-icon>
-              </template>
-            </q-input>
-          </div>
-        </div>
-        <!-- 3rd time peak -->
-        <label for="peak">3rd Peak</label>
-        <label for="date" id="time-in">Time In</label>
-        <label for="date" id="psi">40 PSI</label>
-        <label for="date" id="time-out">Time Out</label>
-        <div class="q-pa-md">
-          <div class="q-gutter-sm row">
-            <q-input filled v-model="time" mask="time" :rules="['time']">
-              <template v-slot:append>
-                <q-icon name="access_time" class="cursor-pointer">
-                  <q-popup-proxy
-                    cover
-                    transition-show="scale"
-                    transition-hide="scale"
-                  >
-                    <q-time v-model="time">
-                      <div class="row items-center justify-end">
-                        <q-btn
-                          v-close-popup
-                          label="Close"
-                          color="primary"
-                          flat
-                        />
-                      </div>
-                    </q-time>
-                  </q-popup-proxy>
-                </q-icon>
-              </template>
-            </q-input>
+        <!-- <div>Quasar v{{ $q.version }}</div> -->
+      </q-toolbar>
+    </q-header>
 
-            <q-input filled v-model="time" mask="time" :rules="['time']">
-              <template v-slot:append>
-                <q-icon name="access_time" class="cursor-pointer">
-                  <q-popup-proxy
-                    cover
-                    transition-show="scale"
-                    transition-hide="scale"
-                  >
-                    <q-time v-model="time">
-                      <div class="row items-center justify-end">
-                        <q-btn
-                          v-close-popup
-                          label="Close"
-                          color="primary"
-                          flat
-                        />
-                      </div>
-                    </q-time>
-                  </q-popup-proxy>
-                </q-icon>
-              </template>
-            </q-input>
-            <q-input filled v-model="time" mask="time" :rules="['time']">
-              <template v-slot:append>
-                <q-icon name="access_time" class="cursor-pointer">
-                  <q-popup-proxy
-                    cover
-                    transition-show="scale"
-                    transition-hide="scale"
-                  >
-                    <q-time v-model="time">
-                      <div class="row items-center justify-end">
-                        <q-btn
-                          v-close-popup
-                          label="Close"
-                          color="primary"
-                          flat
-                        />
-                      </div>
-                    </q-time>
-                  </q-popup-proxy>
-                </q-icon>
-              </template>
-            </q-input>
-          </div>
-        </div>
+    <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      :width="250"
+      :breakpoint="600"
+    >
+      <q-scroll-area
+        style="
+          height: calc(100% - 150px);
+          margin-top: 150px;
+          border-right: 1px solid #ddd;
+        "
+      >
+        <q-separator />
+        <q-list dense class="text-teal text-weight-bold">
+          <q-item clickable to="/dashboard" active-class="my-menu-link">
+            <q-item-section avatar>
+              <q-icon name="dashboard" />
+            </q-item-section>
+            <q-item-section>Dashboard</q-item-section>
+          </q-item>
+        </q-list>
 
-        <label for="cages">No.of.Cages</label>
-        <input type="text" id="cages" name="cages" /><br />
+        <EssentialLink
+          v-for="link in userMenus"
+          :key="link.title"
+          v-bind="link"
+        />
 
-        <label for="remarks">Remarks</label>
-        <input type="text" id="remarks" name="remarks" /><br />
-        <!-- <q-input outlined v-model="text" stack-label :dense="dense" /> -->
-        <div class="button">
-          <q-btn label="Save" type="submit" color="primary" id="save" />
-          <q-btn label="Reset" type="reset" color="primary" id="reset" />
-        </div>
-      </q-form>
-    </div>
-  </div>
+        <q-list dense class="text-teal text-weight-bold">
+          <q-item clickable to="/sterilisation" active-class="my-menu-link">
+            <q-item-section avatar>
+              <q-icon name="mdi-seed" />
+            </q-item-section>
+            <q-item-section>Sterilisation Log Sheet</q-item-section>
+          </q-item>
+        </q-list>
+
+        <q-list dense class="text-teal text-weight-bold">
+          <q-item clickable to="/turbine" active-class="my-menu-link">
+            <q-item-section avatar>
+              <q-icon name="mdi-seed" />
+            </q-item-section>
+            <q-item-section>Turbine Log Sheet</q-item-section>
+          </q-item>
+        </q-list>
+
+        <q-list dense class="text-teal text-weight-bold">
+          <q-item clickable to="/boiler" active-class="my-menu-link">
+            <q-item-section avatar>
+              <q-icon name="mdi-seed" />
+            </q-item-section>
+            <q-item-section>Boiler Log</q-item-section>
+          </q-item>
+        </q-list>
+
+        <q-list dense class="text-teal text-weight-bold">
+          <q-item clickable to="/shift" active-class="my-menu-link">
+            <q-item-section avatar>
+              <q-icon name="mdi-seed" />
+            </q-item-section>
+            <q-item-section>Shift Report</q-item-section>
+          </q-item>
+        </q-list>
+      </q-scroll-area>
+    </q-drawer>
+
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
+// import EssentialLink from "components/EssentialLink.vue";
 
-const linksList = [
-  {
-    title: "Docs",
-    caption: "quasar.dev",
-    icon: "school",
-    link: "https://quasar.dev",
-  },
-  {
-    title: "Github",
-    caption: "github.com/quasarframework",
-    icon: "code",
-    link: "https://github.com/quasarframework",
-  },
-  {
-    title: "Discord Chat Channel",
-    caption: "chat.quasar.dev",
-    icon: "chat",
-    link: "https://chat.quasar.dev",
-  },
-  {
-    title: "Forum",
-    caption: "forum.quasar.dev",
-    icon: "record_voice_over",
-    link: "https://forum.quasar.dev",
-  },
-  {
-    title: "Twitter",
-    caption: "@quasarframework",
-    icon: "rss_feed",
-    link: "https://twitter.quasar.dev",
-  },
-  {
-    title: "Facebook",
-    caption: "@QuasarFramework",
-    icon: "public",
-    link: "https://facebook.quasar.dev",
-  },
-  {
-    title: "Quasar Awesome",
-    caption: "Community Quasar projects",
-    icon: "favorite",
-    link: "https://awesome.quasar.dev",
-  },
-];
+// const linksList = [
+//   {
+// title: "sterilisation",
+// caption: "quasar.dev",
+// icon: "school",
+// link: "http://localhost:3000/#/sterilisation",
+// },
+// {
+//   title: "Github",
+//   caption: "github.com/quasarframework",
+//   icon: "code",
+//   link: "https://github.com/quasarframework",
+// },
+// {
+//   title: "Discord Chat Channel",
+//   caption: "chat.quasar.dev",
+//   icon: "chat",
+//   link: "https://chat.quasar.dev",
+// },
+// {
+//   title: "Forum",
+//   caption: "forum.quasar.dev",
+//   icon: "record_voice_over",
+//   link: "https://forum.quasar.dev",
+// },
+// {
+//   title: "Twitter",
+//   caption: "@quasarframework",
+//   icon: "rss_feed",
+//   link: "https://twitter.quasar.dev",
+// },
+// {
+//   title: "Facebook",
+//   caption: "@QuasarFramework",
+//   icon: "public",
+//   link: "https://facebook.quasar.dev",
+// },
+// {
+//   title: "Quasar Awesome",
+//   caption: "Community Quasar projects",
+//   icon: "favorite",
+//   link: "https://awesome.quasar.dev",
+// },
+// ];
 
 export default defineComponent({
   name: "MainLayout",
+
+  // components: {
+  //   EssentialLink,
+  // },
 
   setup() {
     const leftDrawerOpen = ref(false);
 
     return {
-      essentialLinks: linksList,
+      // essentialLinks: linksList,
       leftDrawerOpen,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
