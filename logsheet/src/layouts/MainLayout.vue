@@ -49,7 +49,7 @@
         <q-list dense class="text-teal text-weight-bold">
           <q-item clickable to="/sterilisation" active-class="my-menu-link">
             <q-item-section avatar>
-              <q-icon name="mdi-seed" />
+              <q-icon name="description" />
             </q-item-section>
             <q-item-section>Sterilisation Log Sheet</q-item-section>
           </q-item>
@@ -58,7 +58,7 @@
         <q-list dense class="text-teal text-weight-bold">
           <q-item clickable to="/turbine" active-class="my-menu-link">
             <q-item-section avatar>
-              <q-icon name="mdi-seed" />
+              <q-icon name="description" />
             </q-item-section>
             <q-item-section>Turbine Log Sheet</q-item-section>
           </q-item>
@@ -67,7 +67,7 @@
         <q-list dense class="text-teal text-weight-bold">
           <q-item clickable to="/boiler" active-class="my-menu-link">
             <q-item-section avatar>
-              <q-icon name="mdi-seed" />
+              <q-icon name="description" />
             </q-item-section>
             <q-item-section>Boiler Log</q-item-section>
           </q-item>
@@ -76,7 +76,7 @@
         <q-list dense class="text-teal text-weight-bold">
           <q-item clickable to="/shift" active-class="my-menu-link">
             <q-item-section avatar>
-              <q-icon name="mdi-seed" />
+              <q-icon name="description" />
             </q-item-section>
             <q-item-section>Shift Report</q-item-section>
           </q-item>
