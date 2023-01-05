@@ -1,219 +1,218 @@
 <template>
   <q-page>
-    <div class="template">
-      <div class="q-pa-md" style="max-width: 400px">
-        <q-form @submit="onSubmit" @reset="onReset" class="q-pa-md form">
-          <!-- <div class="head">
-            <h6 id="headline">STERILISATION STATION LOG SHEET</h6>
-          </div> -->
-          <div class="date">
-            <label for="date">DATE:</label>
-            <input type="text" id="date" name="date" /><br />
-            <label for="shift">Shift:</label>
-            <input type="text" id="shift" name="shift" /><br />
-          </div>
-          <label for="batch no">BATCH NO:</label>
-          <input type="text" id="batch" name="batch" /><br />
-          <label for="batch no">STERILIZER NO:</label>
-          <input type="text" id="sterilizer" name="sterilizer" /><br />
-
-          <!-- 1st time peak -->
-          <label for="peak">1st Peak</label>
-          <label for="time" id="time-in">Time In</label>
-          <label for="time" id="time-out">Time Out</label>
-          <div class="q-pa-md">
-            <div class="q-gutter-sm row">
-              <q-input filled v-model="time" mask="time" :rules="['time']">
-                <template v-slot:append>
-                  <q-icon name="access_time" class="cursor-pointer">
-                    <q-popup-proxy
-                      cover
-                      transition-show="scale"
-                      transition-hide="scale"
-                    >
-                      <q-time v-model="time">
-                        <div class="row items-center justify-end">
-                          <q-btn
-                            v-close-popup
-                            label="Close"
-                            color="primary"
-                            flat
-                          />
-                        </div>
-                      </q-time>
-                    </q-popup-proxy>
-                  </q-icon>
-                </template>
-              </q-input>
-
-              <q-input filled v-model="time" mask="time" :rules="['time']">
-                <template v-slot:append>
-                  <q-icon name="access_time" class="cursor-pointer">
-                    <q-popup-proxy
-                      cover
-                      transition-show="scale"
-                      transition-hide="scale"
-                    >
-                      <q-time v-model="time">
-                        <div class="row items-center justify-end">
-                          <q-btn
-                            v-close-popup
-                            label="Close"
-                            color="primary"
-                            flat
-                          />
-                        </div>
-                      </q-time>
-                    </q-popup-proxy>
-                  </q-icon>
-                </template>
-              </q-input>
-            </div>
-          </div>
-          <!-- <input type="text" id="peak-1" name="peak-1" /><br /> -->
-          <!-- 2nd time peak -->
-          <label for="peak">2nd Peak</label>
-          <label for="date" id="time-in">Time In</label>
-          <label for="date" id="time-out">Time Out</label>
-          <div class="q-pa-md">
-            <div class="q-gutter-sm row">
-              <q-input filled v-model="time" mask="time" :rules="['time']">
-                <template v-slot:append>
-                  <q-icon name="access_time" class="cursor-pointer">
-                    <q-popup-proxy
-                      cover
-                      transition-show="scale"
-                      transition-hide="scale"
-                    >
-                      <q-time v-model="time">
-                        <div class="row items-center justify-end">
-                          <q-btn
-                            v-close-popup
-                            label="Close"
-                            color="primary"
-                            flat
-                          />
-                        </div>
-                      </q-time>
-                    </q-popup-proxy>
-                  </q-icon>
-                </template>
-              </q-input>
-
-              <q-input filled v-model="time" mask="time" :rules="['time']">
-                <template v-slot:append>
-                  <q-icon name="access_time" class="cursor-pointer">
-                    <q-popup-proxy
-                      cover
-                      transition-show="scale"
-                      transition-hide="scale"
-                    >
-                      <q-time v-model="time">
-                        <div class="row items-center justify-end">
-                          <q-btn
-                            v-close-popup
-                            label="Close"
-                            color="primary"
-                            flat
-                          />
-                        </div>
-                      </q-time>
-                    </q-popup-proxy>
-                  </q-icon>
-                </template>
-              </q-input>
-            </div>
-          </div>
-          <!-- 3rd time peak -->
-          <label for="peak">3rd Peak</label>
-          <label for="date" id="time-in">Time In</label>
-          <label for="date" id="psi">40 PSI</label>
-          <label for="date" id="time-out">Time Out</label>
-          <div class="q-pa-md">
-            <div class="q-gutter-sm row">
-              <q-input filled v-model="time" mask="time" :rules="['time']">
-                <template v-slot:append>
-                  <q-icon name="access_time" class="cursor-pointer">
-                    <q-popup-proxy
-                      cover
-                      transition-show="scale"
-                      transition-hide="scale"
-                    >
-                      <q-time v-model="time">
-                        <div class="row items-center justify-end">
-                          <q-btn
-                            v-close-popup
-                            label="Close"
-                            color="primary"
-                            flat
-                          />
-                        </div>
-                      </q-time>
-                    </q-popup-proxy>
-                  </q-icon>
-                </template>
-              </q-input>
-
-              <q-input filled v-model="time" mask="time" :rules="['time']">
-                <template v-slot:append>
-                  <q-icon name="access_time" class="cursor-pointer">
-                    <q-popup-proxy
-                      cover
-                      transition-show="scale"
-                      transition-hide="scale"
-                    >
-                      <q-time v-model="time">
-                        <div class="row items-center justify-end">
-                          <q-btn
-                            v-close-popup
-                            label="Close"
-                            color="primary"
-                            flat
-                          />
-                        </div>
-                      </q-time>
-                    </q-popup-proxy>
-                  </q-icon>
-                </template>
-              </q-input>
-              <q-input filled v-model="time" mask="time" :rules="['time']">
-                <template v-slot:append>
-                  <q-icon name="access_time" class="cursor-pointer">
-                    <q-popup-proxy
-                      cover
-                      transition-show="scale"
-                      transition-hide="scale"
-                    >
-                      <q-time v-model="time">
-                        <div class="row items-center justify-end">
-                          <q-btn
-                            v-close-popup
-                            label="Close"
-                            color="primary"
-                            flat
-                          />
-                        </div>
-                      </q-time>
-                    </q-popup-proxy>
-                  </q-icon>
-                </template>
-              </q-input>
-            </div>
-          </div>
-
-          <label for="cages">No.of.Cages</label>
-          <input type="text" id="cages" name="cages" /><br />
-
-          <label for="remarks">Remarks</label>
-          <input type="text" id="remarks" name="remarks" /><br />
-          <!-- <q-input outlined v-model="text" stack-label :dense="dense" /> -->
-          <div class="button">
-            <q-btn label="Save" type="submit" color="primary" id="save" />
-            <q-btn label="Reset" type="reset" color="primary" id="reset" />
-          </div>
-        </q-form>
+    <q-form class="form">
+      <div class="row col-12" style="margin-top: 51px; justify-content: end">
+        <div class="row">DATE:</div>
+        <div class="q-pa-md" style="max-width: 300px">
+          <q-input
+            label="Date"
+            filled
+            v-model="mytask.date"
+            mask="date"
+            :rules="['date']"
+          >
+            <template v-slot:append>
+              <q-icon name="event" class="cursor-pointer">
+                <q-popup-proxy
+                  cover
+                  transition-show="scale"
+                  transition-hide="scale"
+                >
+                  <q-date v-model="mytask.date">
+                    <div class="row items-center justify-end">
+                      <q-btn v-close-popup label="Close" color="primary" flat />
+                    </div>
+                  </q-date>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
+        </div>
       </div>
-    </div>
+      <div class="row col-12" style="justify-content: end">
+        <div class="row">Shift:</div>
+        <div style="max-width: 250px">
+          <q-input filled v-model="shift" />
+        </div>
+      </div>
+
+      <div class="row col-12" style="margin-left: 20px">
+        <div class="row">BATCH NO:</div>
+        <div style="max-width: 300px; margin-left: 30px">
+          <q-input filled v-model="batch" />
+        </div>
+      </div>
+
+      <div class="row col-12" style="margin-left: 20px">
+        <div class="row">STERILIZER NO:</div>
+        <div style="max-width: 250px; margin-left: 1px">
+          <q-input filled v-model="sterilizer" />
+        </div>
+      </div>
+
+      <!-- 1st time peak -->
+
+      <label for="peak">1st Peak</label>
+      <label for="time" id="time-in">1st-Time In</label>
+      <label for="time" id="time-out">1st-Time Out</label>
+      <div class="q-pa-md">
+        <div class="q-gutter-sm row">
+          <q-input filled v-model="time" mask="time" :rules="['time']">
+            <template v-slot:append>
+              <q-icon name="access_time" class="cursor-pointer">
+                <q-popup-proxy
+                  cover
+                  transition-show="scale"
+                  transition-hide="scale"
+                >
+                  <q-time v-model="time">
+                    <div class="row items-center justify-end">
+                      <q-btn v-close-popup label="Close" color="primary" flat />
+                    </div>
+                  </q-time>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
+
+          <q-input filled v-model="time" mask="time" :rules="['time']">
+            <template v-slot:append>
+              <q-icon name="access_time" class="cursor-pointer">
+                <q-popup-proxy
+                  cover
+                  transition-show="scale"
+                  transition-hide="scale"
+                >
+                  <q-time v-model="time">
+                    <div class="row items-center justify-end">
+                      <q-btn v-close-popup label="Close" color="primary" flat />
+                    </div>
+                  </q-time>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
+        </div>
+      </div>
+      <!-- <input type="text" id="peak-1" name="peak-1" /><br /> -->
+      <!-- 2nd time peak -->
+      <label for="peak">2nd Peak</label>
+      <label for="date" id="time-in">2nd-Time In</label>
+      <label for="date" id="time-out">2nd-Time Out</label>
+      <div class="q-pa-md">
+        <div class="q-gutter-sm row">
+          <q-input filled v-model="time" mask="time" :rules="['time']">
+            <template v-slot:append>
+              <q-icon name="access_time" class="cursor-pointer">
+                <q-popup-proxy
+                  cover
+                  transition-show="scale"
+                  transition-hide="scale"
+                >
+                  <q-time v-model="time">
+                    <div class="row items-center justify-end">
+                      <q-btn v-close-popup label="Close" color="primary" flat />
+                    </div>
+                  </q-time>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
+
+          <q-input filled v-model="time" mask="time" :rules="['time']">
+            <template v-slot:append>
+              <q-icon name="access_time" class="cursor-pointer">
+                <q-popup-proxy
+                  cover
+                  transition-show="scale"
+                  transition-hide="scale"
+                >
+                  <q-time v-model="time">
+                    <div class="row items-center justify-end">
+                      <q-btn v-close-popup label="Close" color="primary" flat />
+                    </div>
+                  </q-time>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
+        </div>
+      </div>
+      <!-- 3rd time peak -->
+      <label for="peak">3rd Peak</label>
+      <label for="date" id="time-in">3rd-Time In</label>
+      <label for="date" id="psi">40 PSI</label>
+      <label for="date" id="third-time-out">3rd-Time Out</label>
+      <div class="q-pa-md">
+        <div class="q-gutter-sm row">
+          <q-input filled v-model="time" mask="time" :rules="['time']">
+            <template v-slot:append>
+              <q-icon name="access_time" class="cursor-pointer">
+                <q-popup-proxy
+                  cover
+                  transition-show="scale"
+                  transition-hide="scale"
+                >
+                  <q-time v-model="time">
+                    <div class="row items-center justify-end">
+                      <q-btn v-close-popup label="Close" color="primary" flat />
+                    </div>
+                  </q-time>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
+
+          <q-input filled v-model="time" mask="time" :rules="['time']">
+            <template v-slot:append>
+              <q-icon name="access_time" class="cursor-pointer">
+                <q-popup-proxy
+                  cover
+                  transition-show="scale"
+                  transition-hide="scale"
+                >
+                  <q-time v-model="time">
+                    <div class="row items-center justify-end">
+                      <q-btn v-close-popup label="Close" color="primary" flat />
+                    </div>
+                  </q-time>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
+          <q-input filled v-model="time" mask="time" :rules="['time']">
+            <template v-slot:append>
+              <q-icon name="access_time" class="cursor-pointer">
+                <q-popup-proxy
+                  cover
+                  transition-show="scale"
+                  transition-hide="scale"
+                >
+                  <q-time v-model="time">
+                    <div class="row items-center justify-end">
+                      <q-btn v-close-popup label="Close" color="primary" flat />
+                    </div>
+                  </q-time>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
+        </div>
+      </div>
+
+      <label for="cages">No.of.Cages</label>
+      <q-input type="text" id="cages" name="cages" /><br />
+
+      <label for="remarks">Remarks</label>
+      <q-input type="text" id="remarks" name="remarks" /><br />
+      <!-- <q-input outlined v-model="text" stack-label :dense="dense" /> -->
+      <div class="button">
+        <q-btn label="Save" type="submit" color="primary" id="save" />
+        <q-btn label="Reset" type="reset" color="primary" id="reset" />
+      </div>
+    </q-form>
+    <!-- </div>
+    </div> -->
     <!-- Page Sticky -->
     <q-page-sticky expand position="top" class="bg-primary text-white">
       <q-toolbar class="bg-green text-white shadow-2" dense>
@@ -227,43 +226,62 @@
       </q-toolbar>
     </q-page-sticky>
   </q-page>
+  <!-- </q-page-container> -->
+  <!-- </q-layout> -->
 </template>
   
 <script>
-import { defineComponent, ref } from "vue";
+import { date } from "quasar";
+import { ref } from "vue";
 
-export default defineComponent({
-  name: "sterilisationLog",
+export default {
+  // name: "sterilisationLog",
 
   setup() {
-    const leftDrawerOpen = ref(false);
-
     return {
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
+      mytask: {
+        date: "",
       },
+
+      // taskdate(d) {
+      //   return d <= date.formateDate(Date.now(), "YYYY/MM/DD");
+      // },
     };
   },
-});
+  methods: {
+    closeDate() {
+      this.$refs.mydate.hide();
+    },
+  },
+};
 </script>
 
 <style>
-.template {
+/* .template {
   display: flex;
   justify-content: center;
   margin-right: 30%;
-}
-.form {
+} */
+/* .form {
   /* outline-style: solid; */
-  width: 800px;
-}
+/* width: 800px; */
+*/
+/* } */
 .date {
   margin-left: 70%;
-  margin-top: 0%;
+  margin-top: 40px;
 }
 #date {
   margin-left: 15px;
+}
+#date-text {
+  margin-left: 15px;
+}
+rilisation #shift-text {
+  margin-left: 17px;
+}
+#input-date {
+  margin-left: 20px;
 }
 #shift {
   margin-left: 19.8px;
@@ -292,7 +310,10 @@ export default defineComponent({
   margin-left: 50px;
 }
 #time-out {
-  margin-left: 200px;
+  margin-left: 150px;
+}
+#third-time-out {
+  margin-left: 180px;
 }
 #psi {
   margin-left: 160px;

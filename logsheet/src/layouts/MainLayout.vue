@@ -39,12 +39,12 @@
             <q-item-section>Dashboard</q-item-section>
           </q-item>
         </q-list>
-
+        <!-- 
         <EssentialLink
           v-for="link in userMenus"
           :key="link.title"
           v-bind="link"
-        />
+        /> -->
 
         <q-list dense class="text-teal text-weight-bold">
           <q-item clickable to="/sterilisation" active-class="my-menu-link">
@@ -139,23 +139,16 @@ import { defineComponent, ref } from "vue";
 // },
 // ];
 
-export default defineComponent({
-  name: "MainLayout",
-
-  // components: {
-  //   EssentialLink,
-  // },
-
-  setup() {
-    const leftDrawerOpen = ref(false);
-
+export default {
+  // name: "MainLayout",
+  // components: { EssentialLink },
+  data() {
     return {
-      // essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
+      leftDrawerOpen: true,
+
+      userMenus: [],
     };
   },
-});
+  created() {},
+};
 </script>
