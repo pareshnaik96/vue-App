@@ -8,7 +8,7 @@
           round
           icon="menu"
           aria-label="Menu"
-          @click="toggleLeftDrawer"
+          @click="leftDrawerOpen = !leftDrawerOpen"
         />
 
         <q-toolbar-title> LOG - SHEETS </q-toolbar-title>
@@ -39,8 +39,8 @@
             <q-item-section>Dashboard</q-item-section>
           </q-item>
         </q-list>
-        <!-- 
-        <EssentialLink
+
+        <!-- <EssentialLink
           v-for="link in userMenus"
           :key="link.title"
           v-bind="link"
@@ -145,7 +145,6 @@ export default {
   data() {
     return {
       leftDrawerOpen: true,
-
       userMenus: [],
     };
   },

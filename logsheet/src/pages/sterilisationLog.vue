@@ -1,25 +1,27 @@
 <template>
   <q-page>
     <q-form class="q-pa-md form" style="margin-bottom: 60px; width: 100%">
-      <div class="row col-12" style="margin-top: 50px; justify-content: end">
+      <div class="row col-12" style="margin-top: 40px; justify-content: end">
         <div>DATE:</div>
         <div>
           <q-input
             filled
+            dense
             v-model="sterilisation.date"
-            ref="Date"
             mask="date"
             :rules="['date']"
             style="width: 200px"
+            @click="$refs.qDateProxy.show()"
           >
             <template v-slot:append>
               <q-icon name="event" class="cursor-pointer">
                 <q-popup-proxy
                   cover
+                  refs="qDateProxy"
                   transition-show="scale"
                   transition-hide="scale"
                 >
-                  <q-date v-model="sterilisation.date">
+                  <q-date @input="closeDialog" v-model="sterilisation.date">
                     <div class="row items-center justify-end">
                       <q-btn v-close-popup label="Close" color="primary" flat />
                     </div>
@@ -36,6 +38,7 @@
         <div>
           <q-select
             filled
+            dense
             v-model="sterilisation.shift"
             :options="['A', 'B', 'C']"
             style="width: 200px"
@@ -48,6 +51,7 @@
         <div>
           <q-input
             filled
+            dense
             mask="####"
             v-model="sterilisation.batch"
             style="max-width: 300px; margin-left: 40px; padding-bottom: 10px"
@@ -60,12 +64,14 @@
         <div>
           <q-input
             filled
+            dense
             mask="#####"
             v-model="sterilisation.sterilizer"
             style="max-width: 300px; margin-left: 10px"
           />
         </div>
       </div>
+      <!------------------------------------------- 1st peak time  ------------------------------------------------------>
       <div class="row col-12">
         <div style="margin-left: 200px">Time In</div>
         <div style="margin-left: 230px">Time Out</div>
@@ -75,6 +81,7 @@
         <div>
           <q-input
             filled
+            dense
             v-model="sterilisation.firstTimeIn"
             mask="time"
             :rules="['time']"
@@ -100,6 +107,7 @@
         <div>
           <q-input
             filled
+            dense
             v-model="sterilisation.firstTimeOut"
             mask="time"
             :rules="['time']"
@@ -123,6 +131,7 @@
           </q-input>
         </div>
       </div>
+      <!--------------------------------------------------- 2nd peak time -------------------------------------------------->
       <div class="row col-12">
         <div style="margin-left: 200px">Time In</div>
         <div style="margin-left: 230px">Time Out</div>
@@ -132,6 +141,7 @@
         <div>
           <q-input
             filled
+            dense
             v-model="sterilisation.secondTimeIn"
             mask="time"
             :rules="['time']"
@@ -157,6 +167,7 @@
         <div>
           <q-input
             filled
+            dense
             v-model="sterilisation.secondTimeOut"
             mask="time"
             :rules="['time']"
@@ -180,7 +191,7 @@
           </q-input>
         </div>
       </div>
-
+      <!---------------------------------------------------------- 3rd peak time ------------------------------------------->
       <div class="row col-12">
         <div style="margin-left: 200px">Time In</div>
         <div style="margin-left: 240px">40 PSI</div>
@@ -192,6 +203,7 @@
         <div>
           <q-input
             filled
+            dense
             v-model="sterilisation.thirdTimeIn"
             mask="time"
             :rules="['time']"
@@ -217,6 +229,7 @@
         <div>
           <q-input
             filled
+            dense
             v-model="sterilisation.thirdTimePSI"
             mask="time"
             :rules="['time']"
@@ -242,6 +255,7 @@
         <div>
           <q-input
             filled
+            dense
             v-model="sterilisation.thirdTimeOut"
             mask="time"
             :rules="['time']"
@@ -271,6 +285,7 @@
         <div>
           <q-input
             filled
+            dense
             min="1"
             mask="#"
             type="number"
@@ -284,6 +299,7 @@
         <div>
           <q-input
             filled
+            dense
             type="textarea"
             v-model="sterilisation.remarks"
             style="width: 770px; margin-left: 50px"
@@ -327,7 +343,7 @@
   
 <script>
 import { date } from "quasar";
-import { ref } from "vue";
+import { refs } from "vue";
 import moment from "moment";
 
 export default {
@@ -358,11 +374,11 @@ export default {
       },
     };
   },
-  // methods: {
-  //   closeDate() {
-  //     this.$ref.Date.hide();
-  //   },
-  // },
+  methods: {
+    closeDialog() {
+      this.$refs.qDateProxy.hide();
+    },
+  },
 };
 </script>
 
